@@ -17,11 +17,11 @@ Participants design, build, and deploy a real Azure application using secure, en
 
 ## Scenarios
 
-| # | Scenario                                                                             | Description                                      |
-|---|--------------------------------------------------------------------------------------|--------------------------------------------------|
+| # | Scenario | Description |
+| --- | --- | --- |
 | 1 | [SLED Case Management CRUD App](./AI%20Prompt%20Scenarios/Prompt-Scenario-1/README.md) | Secure case management system for a county agency |
-| 2 | [Prompt Scenario 2](./AI%20Prompt%20Scenarios/Prompt-Scenario-2/README.md)           | Coming Soon                                      |
-| 3 | [Prompt Scenario 3](./AI%20Prompt%20Scenarios/Prompt-Scenario-3/README.md)           | Coming Soon                                      |
+| 2 | [Prompt Scenario 2](./AI%20Prompt%20Scenarios/Prompt-Scenario-2/README.md) | Coming Soon |
+| 3 | [Prompt Scenario 3](./AI%20Prompt%20Scenarios/Prompt-Scenario-3/README.md) | Coming Soon |
 
 ---
 
@@ -36,7 +36,7 @@ Participants design, build, and deploy a real Azure application using secure, en
 
 ## Azure Deployments Accelerator
 
-The [Azure Deployments Accelerator](./Azure%20Deployments%20Accelerator/README.md) provides ready-to-use Terraform modules for provisioning Azure infrastructure across three deployment patterns:
+The [Azure Deployments Accelerator](./Azure%20Deployments%20Accelerator%20(Terraform)/README.md) provides ready-to-use Terraform modules for provisioning Azure infrastructure across three deployment patterns:
 
 - **Hub** — Core networking, Bastion, Key Vault, and shared services
 - **PaaS** — Azure App Service + Azure SQL Database
