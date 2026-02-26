@@ -20,8 +20,8 @@ Participants design, build, and deploy a real Azure application using secure, en
 | # | Scenario | Description |
 | --- | --- | --- |
 | 1 | [SLED Case Management CRUD App](./AI%20Prompt%20Scenarios/Prompt-Scenario-1/README.md) | Secure case management system for a county agency |
-| 2 | [Prompt Scenario 2](./AI%20Prompt%20Scenarios/Prompt-Scenario-2/README.md) | Coming Soon |
-| 3 | [Prompt Scenario 3](./AI%20Prompt%20Scenarios/Prompt-Scenario-3/README.md) | Coming Soon |
+| 2 | [IaaS Lift & Shift: Permit Management](./AI%20Prompt%20Scenarios/Prompt-Scenario-2/README.md) | Permit management system for a county agency on Windows Server VM + SQL Server VM |
+| 3 | [AI Constituent Services Chatbot](./AI%20Prompt%20Scenarios/Prompt-Scenario-3/README.md) | RAG-powered chatbot for government services using Azure OpenAI + Azure AI Search |
 
 ---
 
