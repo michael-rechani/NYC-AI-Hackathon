@@ -42,5 +42,3 @@ The [Azure Deployments Accelerator](./Azure%20Deployments%20Accelerator%20(Terra
 - **PaaS** — Azure App Service + Azure SQL Database
 - **IaaS** — Windows VM (web tier) + SQL Server VM (data tier)
 - **AI Foundry** — Azure OpenAI, AI Foundry hub, and Cosmos DB connectivity
-
-Infrastructure is pre-provisioned for the event — participants focus on building the application.
