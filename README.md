@@ -1,17 +1,46 @@
-# NYC AI Hackathon
+# AI Hackathon for NYC Public Sector
 
-Welcome to the NYC AI Hackathon! Use this repo to find your scenario and get started.
+A fast-paced, hands-on event where teams go from idea to working Azure application in a single day — built with GitHub Copilot, working side-by-side with Microsoft engineers.
 
-## Prompt Scenarios
+Participants design, build, and deploy a real Azure application using secure, enterprise-ready services and leave with a tangible solution and a clear path to production.
 
-Pick one of the scenarios below and use the provided GitHub Copilot prompts to build your solution on **Microsoft Azure**.
+---
 
-| # | Scenario                                                                          | Status      |
-|---|-----------------------------------------------------------------------------------|-------------|
-| 1 | [Prompt Scenario 1](./AI%20Prompt%20Scenarios/Prompt-Scenario-1/README.md)        | Coming Soon |
-| 2 | [Prompt Scenario 2](./AI%20Prompt%20Scenarios/Prompt-Scenario-2/README.md)        | Coming Soon |
-| 3 | [Prompt Scenario 3](./AI%20Prompt%20Scenarios/Prompt-Scenario-3/README.md)        | Coming Soon |
+## How It Works
+
+1. **Pick a scenario** — Choose one of the challenge scenarios below
+2. **Use GitHub Copilot** — Follow the prompts in your scenario to generate and build your application
+3. **Deploy to Azure** — Get your solution running on Microsoft Azure
+4. **Present your work** — Demo your application to the group at the end of the event
+
+---
+
+## Scenarios
+
+| # | Scenario                                                                             | Description                                      |
+|---|--------------------------------------------------------------------------------------|--------------------------------------------------|
+| 1 | [SLED Case Management CRUD App](./AI%20Prompt%20Scenarios/Prompt-Scenario-1/README.md) | Secure case management system for a county agency |
+| 2 | [Prompt Scenario 2](./AI%20Prompt%20Scenarios/Prompt-Scenario-2/README.md)           | Coming Soon                                      |
+| 3 | [Prompt Scenario 3](./AI%20Prompt%20Scenarios/Prompt-Scenario-3/README.md)           | Coming Soon                                      |
+
+---
+
+## Tools You'll Use
+
+- **[GitHub Copilot](https://github.com/features/copilot)** — AI-powered code generation directly in VS Code
+- **[Microsoft Azure](https://azure.microsoft.com)** — Cloud platform for deploying your application
+- **[Azure AI Foundry](https://ai.azure.com)** — Enterprise-grade AI services including Azure OpenAI
+- **[Visual Studio Code](https://code.visualstudio.com)** — Recommended editor with full Copilot integration
+
+---
 
 ## Azure Deployments Accelerator
 
-The [Azure Deployments Accelerator](./Azure%20Deployments%20Accelerator/README.md) provides Terraform modules for deploying infrastructure on Azure to support your scenario.
+The [Azure Deployments Accelerator](./Azure%20Deployments%20Accelerator/README.md) provides ready-to-use Terraform modules for provisioning Azure infrastructure across three deployment patterns:
+
+- **Hub** — Core networking, Bastion, Key Vault, and shared services
+- **PaaS** — Azure App Service + Azure SQL Database
+- **IaaS** — Windows VM (web tier) + SQL Server VM (data tier)
+- **AI Foundry** — Azure OpenAI, AI Foundry hub, and Cosmos DB connectivity
+
+Infrastructure is pre-provisioned for the event — participants focus on building the application.
