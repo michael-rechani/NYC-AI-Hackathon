@@ -23,9 +23,9 @@ Participants design, build, and deploy a real Azure application using secure, en
 
 ## ⚡ Before You Start
 
-Your **Windows 365 desktop** comes pre-configured with VS Code, GitHub Copilot, Azure CLI, and an active Azure account — no setup required before the event.
+Your **Windows 365 desktop** comes pre-configured with VS Code, GitHub Copilot, and Azure CLI — but depending on your chosen scenario, you may need additional tools (Node.js, .NET, Python, etc.). Use the Copilot prompt below to check what's installed and let Copilot install anything that's missing. A **Microsoft engineer** is also on hand to help make sure you're fully set up before you dive in.
 
-To do a quick sanity check, open VS Code, switch Copilot Chat to **Agent mode**, and paste:
+Open VS Code, switch Copilot Chat to **Agent mode**, and paste:
 
 ```text
 Check my Windows 365 environment and confirm I'm ready to start:
@@ -34,10 +34,12 @@ Check my Windows 365 environment and confirm I'm ready to start:
 
 2. Confirm the GitHub Copilot extension is installed and signed in to VS Code.
 
-3. If anything is missing or not signed in, fix it now and show me the corrected output.
+3. Each scenario requires specific tools — check my chosen scenario's README for the full environment-check prompt, then install anything that's missing.
+
+4. Show me a summary of what's installed and what (if anything) still needs attention.
 ```
 
-> Each scenario README includes its own environment-check prompt with the specific tools required — run that when you open your chosen scenario.
+> If you hit any issues getting set up, flag a Microsoft engineer — we'll get you sorted quickly.
 
 ---
 
