@@ -62,15 +62,6 @@ Check my Windows 365 environment and confirm I'm ready to start:
 
 ---
 
-## 🛠️ Tools You'll Use
-
-- **[GitHub Copilot](https://github.com/features/copilot)** — AI-powered code generation directly in VS Code
-- **[Microsoft Azure](https://azure.microsoft.com)** — Cloud platform for deploying your application
-- **[Azure AI Foundry](https://ai.azure.com)** — Enterprise-grade AI services including Azure OpenAI (Scenario 3)
-- **[Visual Studio Code](https://code.visualstudio.com)** — Recommended editor with full Copilot integration
-
----
-
 ## 🗺️ Architecture Overview
 
 ```text
