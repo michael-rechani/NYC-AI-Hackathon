@@ -23,9 +23,9 @@ Participants design, build, and deploy a real Azure application using secure, en
 
 ## ⚡ Before You Start
 
-Your **Windows 365 desktop** comes pre-configured with VS Code, GitHub Copilot, and Azure CLI — but depending on your chosen scenario, you may need additional tools (Node.js, .NET, Python, etc.). Each scenario's README includes a Copilot prompt to check your environment and install anything that's missing. A **Microsoft engineer** is also on hand to help make sure you're fully set up before you dive in.
+Your **Windows 365 desktop** comes pre-configured with VS Code, GitHub Copilot, and Azure CLI — but depending on your chosen scenario, you may need additional tools (Node.js, .NET, Python, etc.). Each scenario's README includes a Copilot prompt to check your environment and install anything that's missing. A **Microsoft CSA or SE** is also on hand to help make sure you're fully set up before you dive in.
 
-> If you hit any issues getting set up, flag a Microsoft engineer — we'll get you sorted quickly.
+> If you hit any issues getting set up, flag a Microsoft CSA or SE — we'll get you sorted quickly.
 
 ---
 
