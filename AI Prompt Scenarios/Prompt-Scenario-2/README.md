@@ -18,13 +18,13 @@ A SLED-focused lift-and-shift migration of an on-premises permit management syst
 
 ## ⚡ Quick Start
 
-### 1. Check Prerequisites
+### 1. Verify Your Environment
 
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) — run `az login` before starting
-- [Bicep CLI](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) — run `az bicep install`
-- [PowerShell 7+](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell) — for VM deployment scripts
-- Active Azure subscription with Contributor access
+Your Windows 365 desktop is pre-configured with the tools you need. Open VS Code and ask Copilot to check:
+
+> Open **Copilot Chat**, switch to **Agent mode**, and paste:
+>
+> *"Check that .NET 8 SDK, Azure CLI, Bicep CLI, and PowerShell 7+ are installed. Run `az account show` to confirm I'm logged in to Azure. Install anything that's missing."*
 
 ### 2. Open GitHub Copilot Chat
 

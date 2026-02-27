@@ -23,17 +23,13 @@ Participants design, build, and deploy a real Azure application using secure, en
 
 ## ⚡ Before You Start
 
-Make sure you have the following installed and ready before the event:
+Your **Windows 365 desktop** comes pre-configured with VS Code, GitHub Copilot, Azure CLI, and an active Azure account — no setup required before the event.
 
-| Tool | Purpose | Install |
-| --- | --- | --- |
-| [Visual Studio Code](https://code.visualstudio.com) | Editor with full Copilot integration | Required |
-| [GitHub Copilot](https://github.com/features/copilot) | AI code generation — must be active on your GitHub account | Required |
-| [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) | Deploy infrastructure and resources | Required |
-| [Bicep CLI](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) | Infrastructure as Code for scenarios | Required |
-| Active Azure Subscription | Must have **Contributor** access | Required |
+To verify your environment and install anything missing, open VS Code and let Copilot check for you:
 
-> Run `az login` and `az bicep install` before the event to confirm your setup is working.
+> Open **Copilot Chat**, switch to **Agent mode**, and paste:
+>
+> *"Check that VS Code, GitHub Copilot, Azure CLI, and Bicep CLI are all installed and working. Run `az account show` to confirm I'm logged in to Azure. Install anything that's missing and show me the version of each tool."*
 
 ---
 

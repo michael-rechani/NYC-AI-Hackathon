@@ -17,13 +17,13 @@ A SLED-focused AI chatbot that helps citizens get accurate, citation-backed answ
 
 ## ⚡ Quick Start
 
-### 1. Check Prerequisites
+### 1. Verify Your Environment
 
-- [Python 3.12+](https://www.python.org/downloads/)
-- [Node.js 20+](https://nodejs.org/) and npm
-- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) — run `az login` before starting
-- [Bicep CLI](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) — run `az bicep install`
-- Active Azure subscription with Contributor access
+Your Windows 365 desktop is pre-configured with the tools you need. Open VS Code and ask Copilot to check:
+
+> Open **Copilot Chat**, switch to **Agent mode**, and paste:
+>
+> *"Check that Python 3.12+, Node.js 20+, Azure CLI, and Bicep CLI are installed. Run `az account show` to confirm I'm logged in to Azure. Install anything that's missing."*
 
 ### 2. Open GitHub Copilot Chat
 

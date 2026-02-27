@@ -16,14 +16,13 @@ Secure, production-ready case management system for a fictional county agency. B
 
 ## ⚡ Quick Start
 
-### 1. Check Prerequisites
+### 1. Verify Your Environment
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download)
-- [Node.js 20+](https://nodejs.org/) and npm
-- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) — run `az login` before starting
-- [Bicep CLI](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) — run `az bicep install`
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- Active Azure subscription with Contributor access
+Your Windows 365 desktop is pre-configured with the tools you need. Open VS Code and ask Copilot to check:
+
+> Open **Copilot Chat**, switch to **Agent mode**, and paste:
+>
+> *"Check that .NET 10 SDK, Node.js 20+, Azure CLI, Bicep CLI, and Docker Desktop are installed. Run `az account show` to confirm I'm logged in to Azure. Install anything that's missing."*
 
 ### 2. Open GitHub Copilot Chat
 
