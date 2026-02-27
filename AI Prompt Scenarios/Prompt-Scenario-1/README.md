@@ -76,7 +76,8 @@ REPO STRUCTURE (monorepo)
 BACKEND REQUIREMENTS (.NET 10)
 1) Use ASP.NET Core Web API (.NET 10) with:
    - Controllers or Minimal APIs (choose one and be consistent)
-   - OpenAPI/Swagger enabled
+   - OpenAPI enabled using Microsoft.AspNetCore.OpenApi (built-in .NET 10 support)
+     DO NOT use Swashbuckle — it is not compatible with .NET 10
    - Health endpoint (/health)
    - Validation (FluentValidation or data annotations)
    - Structured logging
@@ -86,6 +87,9 @@ BACKEND REQUIREMENTS (.NET 10)
    - Use Managed Identity in Azure (DefaultAzureCredential)
    - Local dev uses a connection string via user-secrets or dotenv
    - Model + repository/service layer (clean architecture-lite)
+   - Configure CosmosClient with System.Text.Json camelCase serialization
+   - Annotate the id field with [JsonPropertyName("id")] to match Cosmos DB's
+     required lowercase document id — do not rely on default property naming
 
 3) CRUD endpoints:
    - GET /api/cases?agencyId=...
@@ -136,11 +140,17 @@ Create Bicep that deploys:
 - App configuration:
   - Inject Cosmos endpoint into API (NOT keys)
   - Inject APPINSIGHTS_CONNECTIONSTRING
+  - Inject AZURE_CLIENT_ID (the user-assigned managed identity's client ID) so
+    DefaultAzureCredential selects the correct identity rather than falling back
+    to system-assigned or failing
 - Tags: environment, dataClassification, owner, costCenter (parameters)
 
 CI/CD (GitHub Actions)
 1) ci.yml — build + test API, build web
 2) deploy.yml — deploy infra via Bicep, deploy API container image, deploy web to Static Web Apps
+   - Deploy frontend by building with `npm run build` and deploying the dist/ folder
+     directly using `az staticwebapp` CLI commands; do NOT use the SWA CLI
+     (`swa deploy`) — it has known Node runtime compatibility issues
 
 DOCUMENTATION
 README must include:
@@ -202,7 +212,7 @@ cd src/api && dotnet restore && dotnet run
 
 ```bash
 az deployment sub create \
-  --location eastus \
+  --location eastus2 \
   --template-file infra/main.bicep \
   --parameters infra/main.bicepparam
 ```
