@@ -186,7 +186,7 @@ Produce:
 1) A brief plan
 2) The full folder/file list
 3) The content for each file (with correct paths as headings)
-4) Commands to run locally and deploy
+4) Commands to deploy to Azure
 
 Do not leave TODO placeholders — implement end-to-end. Choose secure defaults.
 ```
