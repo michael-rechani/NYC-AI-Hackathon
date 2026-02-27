@@ -12,6 +12,16 @@ Secure, production-ready case management system for a fictional county agency. B
 
 **Why this scenario?** County agencies manage thousands of cases across services like social welfare, permitting, and public health — often in legacy systems with no audit trail. This scenario demonstrates how to build a modern, cloud-native CRUD app with security controls (Managed Identity, RBAC) and compliance features (audit logging, PII flags) that SLED agencies actually require before going to production.
 
+## 🏗️ What You'll Build
+
+- **Backend**: ASP.NET Core Web API (.NET 10)
+- **Frontend**: React + TypeScript (Vite)
+- **Database**: Azure Cosmos DB for NoSQL
+- **Infrastructure**: Bicep templates
+- **Hosting**: Azure Container Apps (API) + Azure Static Web Apps (frontend)
+- **Security**: Managed Identity + RBAC — no hardcoded keys
+- **Observability**: Application Insights + Log Analytics
+
 ---
 
 ## ⚡ Quick Start
@@ -194,32 +204,6 @@ Do not leave TODO placeholders — implement end-to-end. Choose secure defaults.
 </details>
 
 > If Copilot stops before finishing, type `continue` and press **Enter**.
-
----
-
-## 🏗️ What You'll Build
-
-- **Backend**: ASP.NET Core Web API (.NET 10)
-- **Frontend**: React + TypeScript (Vite)
-- **Database**: Azure Cosmos DB for NoSQL
-- **Infrastructure**: Bicep templates
-- **Hosting**: Azure Container Apps (API) + Azure Static Web Apps (frontend)
-- **Security**: Managed Identity + RBAC — no hardcoded keys
-- **Observability**: Application Insights + Log Analytics
-
----
-
-## ☁️ Deploy to Azure
-
-```bash
-az deployment sub create \
-  --location eastus2 \
-  --template-file infra/main.bicep \
-  --parameters infra/main.bicepparam
-```
-
-For the container and frontend deployment, ask Copilot:
-> *"Walk me through deploying the API container and frontend to Azure with exact commands."*
 
 ---
 

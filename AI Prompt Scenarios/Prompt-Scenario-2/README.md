@@ -14,6 +14,15 @@ A SLED-focused lift-and-shift migration of an on-premises permit management syst
 
 > **Note on .NET version:** This scenario targets **.NET 8** (vs. .NET 10 in Scenario 1) because IIS on Windows Server 2022 has the most stable, production-tested support for .NET 8 in a lift-and-shift context.
 
+## 🏗️ What You'll Build
+
+- **Backend/Frontend**: ASP.NET Core MVC (.NET 8) with Razor Views
+- **Database**: SQL Server 2022 on Azure VM
+- **Infrastructure**: Bicep templates
+- **Hosting**: IIS on Windows Server 2022 VM
+- **Security**: Key Vault for credentials, network-isolated VMs
+- **Observability**: Structured logging + audit log table
+
 ---
 
 ## ⚡ Quick Start
@@ -194,32 +203,6 @@ Do not leave TODO placeholders — implement end-to-end. Choose secure defaults.
 </details>
 
 > If Copilot stops before finishing, type `continue` and press **Enter**.
-
----
-
-## 🏗️ What You'll Build
-
-- **Backend/Frontend**: ASP.NET Core MVC (.NET 8) with Razor Views
-- **Database**: SQL Server 2022 on Azure VM
-- **Infrastructure**: Bicep templates
-- **Hosting**: IIS on Windows Server 2022 VM
-- **Security**: Key Vault for credentials, network-isolated VMs
-- **Observability**: Structured logging + audit log table
-
----
-
-## ☁️ Deploy to Azure
-
-```bash
-# Deploy infrastructure
-az deployment sub create \
-  --location eastus \
-  --template-file infra/main.bicep \
-  --parameters infra/main.bicepparam
-
-# Deploy app to VM
-pwsh scripts/deploy-app.ps1
-```
 
 ---
 

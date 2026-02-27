@@ -13,6 +13,16 @@ A SLED-focused AI chatbot that helps citizens get accurate, citation-backed answ
 
 **Why this scenario?** Government call centers and service portals are overwhelmed with routine questions — permit requirements, eligibility rules, appeal deadlines. This scenario builds a chatbot that answers those questions instantly with citations from authoritative sources, reducing call volume while improving accessibility. It demonstrates a complete RAG pipeline: from document ingestion and vector indexing to grounded, auditable AI responses that meet responsible AI requirements for public-sector deployment.
 
+## 🏗️ What You'll Build
+
+- **Backend**: Python + FastAPI
+- **Frontend**: React + TypeScript (Vite)
+- **AI**: Azure OpenAI GPT-4o via Azure AI Foundry
+- **RAG**: Azure AI Search — grounds answers in real government FAQ content
+- **Database**: Azure Cosmos DB for NoSQL (conversation history)
+- **Hosting**: Azure App Service (API) + Azure Static Web Apps (frontend)
+- **Security**: Managed Identity + RBAC — no hardcoded API keys
+
 ---
 
 ## ⚡ Quick Start
@@ -214,36 +224,6 @@ Do not leave TODO placeholders — implement end-to-end. Choose secure defaults.
 </details>
 
 > If Copilot stops before finishing, type `continue` and press **Enter**.
-
----
-
-## 🏗️ What You'll Build
-
-- **Backend**: Python + FastAPI
-- **Frontend**: React + TypeScript (Vite)
-- **AI**: Azure OpenAI GPT-4o via Azure AI Foundry
-- **RAG**: Azure AI Search — grounds answers in real government FAQ content
-- **Database**: Azure Cosmos DB for NoSQL (conversation history)
-- **Hosting**: Azure App Service (API) + Azure Static Web Apps (frontend)
-- **Security**: Managed Identity + RBAC — no hardcoded API keys
-
----
-
-## ☁️ Deploy to Azure
-
-```bash
-# Deploy infrastructure
-az deployment sub create \
-  --location eastus \
-  --template-file infra/main.bicep \
-  --parameters infra/main.bicepparam
-
-# Index knowledge base into Azure AI Search
-python scripts/index-documents.py
-```
-
-For the App Service and Static Web App deployment, ask Copilot:
-> *"Walk me through deploying the API and frontend to Azure with exact commands."*
 
 ---
 
