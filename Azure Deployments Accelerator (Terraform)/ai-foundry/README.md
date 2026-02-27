@@ -1,5 +1,10 @@
 # Azure AI Foundry Infrastructure
 
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?logo=terraform&logoColor=white)
+![Microsoft Azure](https://img.shields.io/badge/Microsoft_Azure-0078D4?logo=microsoftazure&logoColor=white)
+![Azure OpenAI](https://img.shields.io/badge/Azure_OpenAI-0078D4?logo=microsoftazure&logoColor=white)
+![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000000?logo=githubcopilot&logoColor=white)
+
 This module deploys Azure AI Foundry and connects it to the SQL workloads running in the `paas-app` and `iaas-app` environments.
 
 ## Architecture
@@ -60,6 +65,56 @@ This module deploys Azure AI Foundry and connects it to the SQL workloads runnin
 │             privatelink.database.windows.net                         │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+
+## 🤖 Use GitHub Copilot
+
+Open this folder in VS Code, switch Copilot Chat to **Agent mode**, and paste the prompt below.
+
+<details>
+<summary><strong>View Copilot prompt</strong></summary>
+
+```text
+You are a senior Azure AI infrastructure engineer. The existing Terraform
+configuration in this folder deploys an Azure AI Foundry hub with Azure OpenAI
+(GPT-4o), connected to the hub VNet and optionally to the PaaS SQL Database
+and IaaS SQL Server VM.
+
+PREREQUISITES
+The following modules must already be deployed:
+- hub/       → provides Key Vault, Bastion, Private DNS
+- paas-app/  → provides Azure SQL Database (for AI Foundry connection)
+Run `cd ../hub && terraform output` and `cd ../paas-app && terraform output`
+to retrieve the values you'll need.
+
+TASK
+Review the existing Terraform files and help me:
+
+1. Explain the AI Foundry architecture — what AI Hub, AI Project, and AI
+   Services are, how GPT-4o is accessed, and why private endpoints are used.
+
+2. Walk me through terraform.tfvars — identify every value I need to update,
+   including hub cross-references and whether to enable the IaaS SQL Private
+   Link Service connection (enable_iaas_sql_pls).
+
+3. Guide me step-by-step through terraform init, terraform plan, and
+   terraform apply.
+
+4. After deployment, show me how to open the AI Foundry hub in the Azure portal
+   and start using Prompt Flow or AI Agents with the GPT-4o deployment.
+
+5. If terraform apply fails due to GPT-4o quota limits, help me identify which
+   Azure region has availability or suggest an alternative model deployment.
+
+6. Help me troubleshoot any errors during plan or apply.
+
+CONSTRAINTS
+- Use the existing .tf files as-is. Do not rewrite them.
+- Do not make changes to any file unless I explicitly ask.
+```
+
+</details>
+
+---
 
 ## SQL Connectivity
 

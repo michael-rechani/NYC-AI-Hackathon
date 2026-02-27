@@ -1,5 +1,9 @@
 # PaaS Deployment (App Service and Azure SQL)
 
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?logo=terraform&logoColor=white)
+![Microsoft Azure](https://img.shields.io/badge/Microsoft_Azure-0078D4?logo=microsoftazure&logoColor=white)
+![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000000?logo=githubcopilot&logoColor=white)
+
 This module deploys Azure PaaS infrastructure for a modern cloud-native application including:
 - App Service Plan (Windows or Linux)
 - App Service Web App with Private Endpoint
@@ -11,6 +15,56 @@ This module deploys Azure PaaS infrastructure for a modern cloud-native applicat
 - Application Insights for monitoring
 
 > **Prerequisite**: The [hub](../hub/README.md) layer must be deployed first. This module references the hub's Key Vault (for storing credentials) and Private DNS Zone (for Key Vault private connectivity).
+
+## 🤖 Use GitHub Copilot
+
+Open this folder in VS Code, switch Copilot Chat to **Agent mode**, and paste the prompt below.
+
+<details>
+<summary><strong>View Copilot prompt</strong></summary>
+
+```text
+You are a senior Azure infrastructure engineer. The existing Terraform configuration
+in this folder deploys a PaaS landing zone: Azure App Service with VNet integration,
+Azure SQL Database with a private endpoint, Application Insights, and VNet peering
+to the hub.
+
+PREREQUISITE
+The hub/ module must already be deployed. You will need the hub's output values:
+- hub_resource_group_name
+- hub_vnet_name
+- hub_key_vault_name
+Run `cd ../hub && terraform output` to retrieve them if needed.
+
+TASK
+Review the existing Terraform files and help me:
+
+1. Explain the PaaS architecture — how App Service connects to SQL Database via
+   private networking and why this is more secure than a public connection string.
+
+2. Walk me through terraform.tfvars — identify every value I need to update,
+   especially the hub cross-references and the runtime stack setting (e.g., .NET,
+   Python, or Node.js).
+
+3. Guide me step-by-step through terraform init, terraform plan, and
+   terraform apply.
+
+4. After deployment, show me how to retrieve the App Service URL and Application
+   Insights connection string from terraform output.
+
+5. Explain the Next Steps: how to deploy application code to App Service and how
+   to configure the SQL Database schema.
+
+6. Help me troubleshoot any errors during plan or apply.
+
+CONSTRAINTS
+- Use the existing .tf files as-is. Do not rewrite them.
+- Do not make changes to any file unless I explicitly ask.
+```
+
+</details>
+
+---
 
 ## Prerequisites
 
@@ -131,4 +185,3 @@ After deployment:
 3. Set up custom domains and SSL certificates
 4. Configure authentication and authorization
 5. Review Application Insights telemetry
-6. Set up CI/CD pipelines

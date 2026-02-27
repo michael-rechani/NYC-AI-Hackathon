@@ -1,5 +1,9 @@
 # IaaS Deployment (Web and SQL VMs)
 
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?logo=terraform&logoColor=white)
+![Microsoft Azure](https://img.shields.io/badge/Microsoft_Azure-0078D4?logo=microsoftazure&logoColor=white)
+![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000000?logo=githubcopilot&logoColor=white)
+
 This module deploys Azure IaaS infrastructure for a multi-tier application including:
 
 - Virtual Network with web and data subnets
@@ -12,6 +16,54 @@ This module deploys Azure IaaS infrastructure for a multi-tier application inclu
 - Optional public IP for web access
 
 > **Prerequisite**: The [hub](../hub/README.md) layer must be deployed first. This module references the hub's Key Vault (for storing credentials) and Private DNS Zone (for Key Vault private connectivity).
+
+## 🤖 Use GitHub Copilot
+
+Open this folder in VS Code, switch Copilot Chat to **Agent mode**, and paste the prompt below.
+
+<details>
+<summary><strong>View Copilot prompt</strong></summary>
+
+```text
+You are a senior Azure infrastructure engineer. The existing Terraform configuration
+in this folder deploys an IaaS landing zone: a Windows Server 2022 web VM, a
+SQL Server 2022 VM, network segmentation (web and data subnets), NSG rules, and
+VNet peering to the hub.
+
+PREREQUISITE
+The hub/ module must already be deployed. You will need the hub's output values:
+- hub_resource_group_name
+- hub_vnet_name
+- hub_key_vault_name
+Run `cd ../hub && terraform output` to retrieve them if needed.
+
+TASK
+Review the existing Terraform files and help me:
+
+1. Explain how this IaaS layer connects to the hub and why the VNet peering
+   and Private DNS Zone link are needed.
+
+2. Walk me through terraform.tfvars — identify every value I must update,
+   especially the three hub cross-references listed above.
+
+3. Guide me step-by-step through terraform init, terraform plan, and
+   terraform apply.
+
+4. After deployment, show me how to connect to the web VM via Azure Bastion.
+
+5. Show me where the web and SQL VM credentials are stored (hint: Hub Key Vault)
+   and how to retrieve them with the Azure CLI.
+
+6. Help me troubleshoot any errors that appear during plan or apply.
+
+CONSTRAINTS
+- Use the existing .tf files as-is. Do not rewrite them.
+- Do not make changes to any file unless I explicitly ask.
+```
+
+</details>
+
+---
 
 ## Prerequisites
 

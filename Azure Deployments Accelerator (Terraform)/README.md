@@ -1,6 +1,25 @@
-# App-in-a-Day-Workshop
+# Azure Deployments Accelerator
+
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?logo=terraform&logoColor=white)
+![Microsoft Azure](https://img.shields.io/badge/Microsoft_Azure-0078D4?logo=microsoftazure&logoColor=white)
+![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000000?logo=githubcopilot&logoColor=white)
 
 Infrastructure as Code to deploy support infrastructure and Azure resources to host multi-tier applications using Terraform and Azure Verified Modules.
+
+## 🤖 Using GitHub Copilot with This Accelerator
+
+The Terraform modules in this accelerator are pre-built and ready to deploy — but GitHub Copilot can help you understand the code, customize variables for your environment, and troubleshoot any issues during deployment.
+
+**How to use Copilot with any module:**
+
+1. Open the module folder (e.g., `hub/`) in VS Code
+2. Switch Copilot Chat to **Agent mode**
+3. Paste the Copilot prompt from that module's README into the chat
+4. Copilot will read your `.tf` files and guide you through configuration and deployment
+
+Each module README below includes a **"Use GitHub Copilot"** section with a ready-to-paste prompt.
+
+---
 
 ## 📋 Overview
 
