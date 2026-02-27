@@ -50,7 +50,7 @@ Check my Windows 365 environment and confirm I'm ready to start:
 
 ---
 
-## 📋 Scenarios
+## 🤖 AI Prompt Scenarios
 
 | # | Scenario | Description | Difficulty | Tech Stack | Est. Time |
 | --- | --- | --- | --- | --- | --- |
@@ -60,18 +60,7 @@ Check my Windows 365 environment and confirm I'm ready to start:
 
 > Not sure which to pick? Scenarios 1 and 2 are great starting points for teams focused on web app development. Scenario 3 is ideal for teams interested in AI and RAG patterns.
 
----
-
-## 🏗️ Architecture Overview
-
 ```text
-┌─────────────────────────────────────────────────────────────────────────┐
-│                      Azure Deployments Accelerator                      │
-│                              (Terraform)                                │
-│          Hub · Bastion · Key Vault · PaaS · IaaS · AI Foundry          │
-│                    Optional shared enterprise landing zone              │
-└─────────────────────────────────────────────────────────────────────────┘
-
   ┌──────────────────────┐  ┌──────────────────────┐  ┌──────────────────────┐
   │      Scenario 1      │  │      Scenario 2       │  │      Scenario 3      │
   │  Case Management     │  │  Permit Management    │  │  AI Chatbot (RAG)    │
@@ -87,6 +76,19 @@ Check my Windows 365 environment and confirm I'm ready to start:
   │  Intermediate · 3–4h │  │  Intermediate · 3–4h  │  │ ──────────────────── │
   └──────────────────────┘  └──────────────────────┘  │  Advanced · 4–5h     │
                                                         └──────────────────────┘
+```
+
+---
+
+## 🏗️ Azure Deployments Accelerator (Terraform)
+
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                      Azure Deployments Accelerator                      │
+│                              (Terraform)                                │
+│          Hub · Bastion · Key Vault · PaaS · IaaS · AI Foundry          │
+│                    Optional shared enterprise landing zone              │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 The [Azure Deployments Accelerator](./Azure%20Deployments%20Accelerator%20(Terraform)/README.md) provides optional, ready-to-use Terraform modules for a shared enterprise landing zone — Hub networking, Bastion, Key Vault, PaaS, IaaS, and AI Foundry. The three challenge scenarios each generate their own self-contained **Bicep** templates via Copilot and deploy independently.
