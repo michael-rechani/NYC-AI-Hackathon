@@ -58,8 +58,6 @@ Check my Windows 365 environment and confirm I'm ready to start:
 | 2 | [IaaS Lift & Shift: Permit Management](./AI%20Prompt%20Scenarios/Prompt-Scenario-2/README.md) | Lift-and-shift permit management system to Azure VMs | Intermediate | .NET 8 · SQL Server VM · IIS · Bicep | ~3–4 hrs |
 | 3 | [AI Constituent Services Chatbot](./AI%20Prompt%20Scenarios/Prompt-Scenario-3/README.md) | RAG-powered chatbot for government services using Azure OpenAI + Azure AI Search | Advanced | Python · FastAPI · React · Azure OpenAI · AI Search · Bicep | ~4–5 hrs |
 
-> Not sure which to pick? Scenarios 1 and 2 are great starting points for teams focused on web app development. Scenario 3 is ideal for teams interested in AI and RAG patterns.
-
 ---
 
 ## 🏗️ Azure Deployments Accelerator (Terraform)
