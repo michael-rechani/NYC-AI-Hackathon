@@ -60,35 +60,30 @@ Check my Windows 365 environment and confirm I'm ready to start:
 
 > Not sure which to pick? Scenarios 1 and 2 are great starting points for teams focused on web app development. Scenario 3 is ideal for teams interested in AI and RAG patterns.
 
-```text
-  ┌──────────────────────┐  ┌──────────────────────┐  ┌──────────────────────┐
-  │      Scenario 1      │  │      Scenario 2       │  │      Scenario 3      │
-  │  Case Management     │  │  Permit Management    │  │  AI Chatbot (RAG)    │
-  │  CRUD App            │  │  IaaS Lift & Shift    │  │                      │
-  │ ─────────────────── ─│  │ ──────────────────── ─│  │ ──────────────────── │
-  │  ASP.NET Core .NET 10│  │  ASP.NET Core .NET 8  │  │  Python + FastAPI    │
-  │  React + TypeScript  │  │  Razor Views + EF Core│  │  React + TypeScript  │
-  │  Azure Cosmos DB     │  │  SQL Server 2022 VM   │  │  Azure OpenAI GPT-4o │
-  │  Azure Container Apps│  │  Windows Server 2022  │  │  Azure AI Search     │
-  │  Azure Static Web    │  │  IIS + Azure Key Vault│  │  Cosmos DB (history) │
-  │  Bicep IaC           │  │  Bicep IaC            │  │  App Service + SWA   │
-  │ ─────────────────── ─│  │ ──────────────────── ─│  │  Bicep IaC           │
-  │  Intermediate · 3–4h │  │  Intermediate · 3–4h  │  │ ──────────────────── │
-  └──────────────────────┘  └──────────────────────┘  │  Advanced · 4–5h     │
-                                                        └──────────────────────┘
-```
-
 ---
 
 ## 🏗️ Azure Deployments Accelerator (Terraform)
 
+The [Azure Deployments Accelerator](./Azure%20Deployments%20Accelerator%20(Terraform)/README.md) provides ready-to-use Terraform modules for deploying a shared enterprise landing zone on Azure. It follows a hub-and-spoke network topology — deploy the Hub first to establish shared networking, Key Vault, and Bastion access, then add IaaS, PaaS, and AI Foundry spokes in any order.
+
 ```text
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                      Azure Deployments Accelerator                      │
-│                              (Terraform)                                │
-│          Hub · Bastion · Key Vault · PaaS · IaaS · AI Foundry          │
-│                    Optional shared enterprise landing zone              │
+│  Step 1 — Hub  (required, deploy first)                                 │
+│  Virtual Network · Azure Bastion · Jumpbox VM · Key Vault               │
+│  NAT Gateway · Private DNS Zones · Network Security Groups              │
 └─────────────────────────────────────────────────────────────────────────┘
+                                    |  VNet Peering (hub-and-spoke)
+                                    |
+              ┌─────────────────────┼─────────────────────┐
+              |                     |                     |
+  ┌───────────┴──────────┐  ┌───────┴───────────────┐  ┌─┴───────────────────────┐
+  │  Step 2a — IaaS      │  │  Step 2b — PaaS       │  │  Step 3 — AI Foundry    │
+  │  Web Server VM       │  │  Azure App Service    │  │  AI Foundry Hub         │
+  │  SQL Server 2022 VM  │  │  Azure SQL Database   │  │  Azure OpenAI (GPT-4o)  │
+  │  (optional)          │  │  (optional)           │  │  (optional)             │
+  └──────────────────────┘  └───────────────────────┘  └─────────────────────────┘
 ```
 
-The [Azure Deployments Accelerator](./Azure%20Deployments%20Accelerator%20(Terraform)/README.md) provides optional, ready-to-use Terraform modules for a shared enterprise landing zone — Hub networking, Bastion, Key Vault, PaaS, IaaS, and AI Foundry. The three challenge scenarios each generate their own self-contained **Bicep** templates via Copilot and deploy independently.
+Each module's README includes a GitHub Copilot prompt that guides you through `terraform.tfvars`, `terraform init`, `terraform plan`, and `terraform apply`. For the full deployment guide, see [DEPLOYMENT.md](./Azure%20Deployments%20Accelerator%20(Terraform)/DEPLOYMENT.md).
+
+> The three challenge scenarios include their own self-contained **Bicep** templates generated by Copilot — they deploy independently and do not require the Accelerator. The Accelerator is intended as a shared enterprise baseline for teams that want a production-ready Azure landing zone.
