@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" width="1200" height="280">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#071428"/>
+      <stop offset="100%" stop-color="#0d2137"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0078D4"/>
+      <stop offset="100%" stop-color="#50e6ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="280" fill="url(#bg)"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1200" height="3" fill="url(#accent)"/>
+
+  <!-- Left network decoration -->
+  <circle cx="90" cy="70" r="4" fill="#0078D4" opacity="0.7"/>
+  <circle cx="45" cy="130" r="3" fill="#50e6ff" opacity="0.5"/>
+  <circle cx="130" cy="155" r="5" fill="#0078D4" opacity="0.4"/>
+  <circle cx="65" cy="205" r="3" fill="#50e6ff" opacity="0.35"/>
+  <circle cx="150" cy="220" r="3" fill="#0078D4" opacity="0.3"/>
+  <circle cx="30" cy="60" r="2" fill="#50e6ff" opacity="0.3"/>
+  <line x1="90" y1="70" x2="45" y2="130" stroke="#0078D4" stroke-width="1" opacity="0.35"/>
+  <line x1="45" y1="130" x2="130" y2="155" stroke="#0078D4" stroke-width="1" opacity="0.3"/>
+  <line x1="130" y1="155" x2="65" y2="205" stroke="#50e6ff" stroke-width="1" opacity="0.25"/>
+  <line x1="130" y1="155" x2="150" y2="220" stroke="#0078D4" stroke-width="1" opacity="0.2"/>
+  <line x1="30" y1="60" x2="90" y2="70" stroke="#50e6ff" stroke-width="1" opacity="0.25"/>
+  <line x1="30" y1="60" x2="45" y2="130" stroke="#0078D4" stroke-width="1" opacity="0.2"/>
+
+  <!-- Right network decoration -->
+  <circle cx="1110" cy="70" r="4" fill="#0078D4" opacity="0.7"/>
+  <circle cx="1155" cy="130" r="3" fill="#50e6ff" opacity="0.5"/>
+  <circle cx="1070" cy="155" r="5" fill="#0078D4" opacity="0.4"/>
+  <circle cx="1135" cy="205" r="3" fill="#50e6ff" opacity="0.35"/>
+  <circle cx="1050" cy="220" r="3" fill="#0078D4" opacity="0.3"/>
+  <circle cx="1170" cy="60" r="2" fill="#50e6ff" opacity="0.3"/>
+  <line x1="1110" y1="70" x2="1155" y2="130" stroke="#0078D4" stroke-width="1" opacity="0.35"/>
+  <line x1="1155" y1="130" x2="1070" y2="155" stroke="#0078D4" stroke-width="1" opacity="0.3"/>
+  <line x1="1070" y1="155" x2="1135" y2="205" stroke="#50e6ff" stroke-width="1" opacity="0.25"/>
+  <line x1="1070" y1="155" x2="1050" y2="220" stroke="#0078D4" stroke-width="1" opacity="0.2"/>
+  <line x1="1170" y1="60" x2="1110" y2="70" stroke="#50e6ff" stroke-width="1" opacity="0.25"/>
+  <line x1="1170" y1="60" x2="1155" y2="130" stroke="#0078D4" stroke-width="1" opacity="0.2"/>
+
+  <!-- Main title -->
+  <text x="600" y="110" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" text-anchor="middle" letter-spacing="-0.5">AI Hackathon for NYC Public Sector</text>
+
+  <!-- Tagline -->
+  <text x="600" y="158" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="19" font-weight="400" fill="#8bb8da" text-anchor="middle">Build real Azure applications with GitHub Copilot &#8212; in a single day</text>
+
+  <!-- Tool pills -->
+  <!-- GitHub Copilot -->
+  <rect x="264" y="192" width="148" height="30" rx="15" fill="#0078D4" fill-opacity="0.18" stroke="#0078D4" stroke-opacity="0.55" stroke-width="1"/>
+  <text x="338" y="212" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="500" fill="#50e6ff" text-anchor="middle">GitHub Copilot</text>
+
+  <!-- Microsoft Azure -->
+  <rect x="425" y="192" width="138" height="30" rx="15" fill="#0078D4" fill-opacity="0.18" stroke="#0078D4" stroke-opacity="0.55" stroke-width="1"/>
+  <text x="494" y="212" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="500" fill="#50e6ff" text-anchor="middle">Microsoft Azure</text>
+
+  <!-- Azure AI Foundry -->
+  <rect x="576" y="192" width="148" height="30" rx="15" fill="#0078D4" fill-opacity="0.18" stroke="#0078D4" stroke-opacity="0.55" stroke-width="1"/>
+  <text x="650" y="212" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="500" fill="#50e6ff" text-anchor="middle">Azure AI Foundry</text>
+
+  <!-- Visual Studio Code -->
+  <rect x="737" y="192" width="148" height="30" rx="15" fill="#0078D4" fill-opacity="0.18" stroke="#0078D4" stroke-opacity="0.55" stroke-width="1"/>
+  <text x="811" y="212" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="500" fill="#50e6ff" text-anchor="middle">Visual Studio Code</text>
+
+  <!-- Bottom accent bar -->
+  <rect x="0" y="277" width="1200" height="3" fill="url(#accent)"/>
+</svg>

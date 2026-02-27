@@ -1,44 +1,108 @@
 # AI Hackathon for NYC Public Sector
 
+<img src="./assets/banner.svg" alt="AI Hackathon for NYC Public Sector" width="100%"/>
+
+![Microsoft Azure](https://img.shields.io/badge/Microsoft_Azure-0078D4?logo=microsoftazure&logoColor=white)
+![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000000?logo=githubcopilot&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-512BD4?logo=dotnet&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![Bicep](https://img.shields.io/badge/Bicep-0078D4?logo=microsoftazure&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?logo=terraform&logoColor=white)
+
 A fast-paced, hands-on event where teams go from idea to working Azure application in a single day — built with GitHub Copilot, working side-by-side with Microsoft engineers.
 
-Participants design, build, and deploy a real Azure application using secure, enterprise-ready services and leave with a tangible solution and a clear path to production.
+Participants design, build, and deploy a real Azure application using secure, enterprise-ready services and leave with:
+
+- A **working, deployed Azure application** you built yourself
+- Hands-on experience with **GitHub Copilot Agent mode** for real-world development
+- Reusable **infrastructure-as-code templates** for Azure deployments
+- Practical knowledge of **SLED security patterns** (Managed Identity, RBAC, zero hardcoded secrets)
 
 ---
 
-## How It Works
+## ⚡ Before You Start
 
-1. **Pick a scenario** — Choose one of the challenge scenarios below
-2. **Use GitHub Copilot** — Follow the prompts in your scenario to generate and build your application
-3. **Deploy to Azure** — Get your solution running on Microsoft Azure
+Make sure you have the following installed and ready before the event:
+
+| Tool | Purpose | Install |
+| --- | --- | --- |
+| [Visual Studio Code](https://code.visualstudio.com) | Editor with full Copilot integration | Required |
+| [GitHub Copilot](https://github.com/features/copilot) | AI code generation — must be active on your GitHub account | Required |
+| [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) | Deploy infrastructure and resources | Required |
+| [Bicep CLI](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) | Infrastructure as Code for scenarios | Required |
+| Active Azure Subscription | Must have **Contributor** access | Required |
+
+> Run `az login` and `az bicep install` before the event to confirm your setup is working.
+
+---
+
+## 🚀 How It Works
+
+1. **Pick a scenario** — Choose one of the challenge scenarios below based on your team's interests and skill set
+2. **Use GitHub Copilot** — Follow the prompts in your scenario to generate and build your application in Agent mode
+3. **Deploy to Azure** — Get your solution running on Microsoft Azure using the provided infrastructure templates
 4. **Present your work** — Demo your application to the group at the end of the event
 
 ---
 
-## Scenarios
+## 📋 Scenarios
 
-| # | Scenario | Description |
-| --- | --- | --- |
-| 1 | [SLED Case Management CRUD App](./AI%20Prompt%20Scenarios/Prompt-Scenario-1/README.md) | Secure case management system for a county agency |
-| 2 | [IaaS Lift & Shift: Permit Management](./AI%20Prompt%20Scenarios/Prompt-Scenario-2/README.md) | Permit management system for a county agency on Windows Server VM + SQL Server VM |
-| 3 | [AI Constituent Services Chatbot](./AI%20Prompt%20Scenarios/Prompt-Scenario-3/README.md) | RAG-powered chatbot for government services using Azure OpenAI + Azure AI Search |
+| # | Scenario | Description | Difficulty | Tech Stack | Est. Time |
+| --- | --- | --- | --- | --- | --- |
+| 1 | [SLED Case Management CRUD App](./AI%20Prompt%20Scenarios/Prompt-Scenario-1/README.md) | Secure case management system for a county agency | Intermediate | .NET 10 · React · Cosmos DB · Bicep | ~3–4 hrs |
+| 2 | [IaaS Lift & Shift: Permit Management](./AI%20Prompt%20Scenarios/Prompt-Scenario-2/README.md) | Lift-and-shift permit management system to Azure VMs | Intermediate | .NET 8 · SQL Server VM · IIS · Bicep | ~3–4 hrs |
+| 3 | [AI Constituent Services Chatbot](./AI%20Prompt%20Scenarios/Prompt-Scenario-3/README.md) | RAG-powered chatbot for government services using Azure OpenAI + Azure AI Search | Advanced | Python · FastAPI · React · Azure OpenAI · AI Search · Bicep | ~4–5 hrs |
+
+> Not sure which to pick? Scenarios 1 and 2 are great starting points for teams focused on web app development. Scenario 3 is ideal for teams interested in AI and RAG patterns.
 
 ---
 
-## Tools You'll Use
+## 🛠️ Tools You'll Use
 
 - **[GitHub Copilot](https://github.com/features/copilot)** — AI-powered code generation directly in VS Code
 - **[Microsoft Azure](https://azure.microsoft.com)** — Cloud platform for deploying your application
-- **[Azure AI Foundry](https://ai.azure.com)** — Enterprise-grade AI services including Azure OpenAI
+- **[Azure AI Foundry](https://ai.azure.com)** — Enterprise-grade AI services including Azure OpenAI (Scenario 3)
 - **[Visual Studio Code](https://code.visualstudio.com)** — Recommended editor with full Copilot integration
 
 ---
 
-## Azure Deployments Accelerator
+## 🗺️ Architecture Overview
 
-The [Azure Deployments Accelerator](./Azure%20Deployments%20Accelerator%20(Terraform)/README.md) provides ready-to-use Terraform modules for provisioning Azure infrastructure across three deployment patterns:
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                      Azure Deployments Accelerator                      │
+│                              (Terraform)                                │
+│          Hub · Bastion · Key Vault · PaaS · IaaS · AI Foundry          │
+│                    Optional shared enterprise landing zone              │
+└─────────────────────────────────────────────────────────────────────────┘
+
+  ┌──────────────────────┐  ┌──────────────────────┐  ┌──────────────────────┐
+  │      Scenario 1      │  │      Scenario 2       │  │      Scenario 3      │
+  │  Case Management     │  │  Permit Management    │  │  AI Chatbot (RAG)    │
+  │  CRUD App            │  │  IaaS Lift & Shift    │  │                      │
+  │ ─────────────────── ─│  │ ──────────────────── ─│  │ ──────────────────── │
+  │  ASP.NET Core .NET 10│  │  ASP.NET Core .NET 8  │  │  Python + FastAPI    │
+  │  React + TypeScript  │  │  Razor Views + EF Core│  │  React + TypeScript  │
+  │  Azure Cosmos DB     │  │  SQL Server 2022 VM   │  │  Azure OpenAI GPT-4o │
+  │  Azure Container Apps│  │  Windows Server 2022  │  │  Azure AI Search     │
+  │  Azure Static Web    │  │  IIS + Azure Key Vault│  │  Cosmos DB (history) │
+  │  Bicep IaC           │  │  Bicep IaC            │  │  App Service + SWA   │
+  │ ─────────────────── ─│  │ ──────────────────── ─│  │  Bicep IaC           │
+  │  Intermediate · 3–4h │  │  Intermediate · 3–4h  │  │ ──────────────────── │
+  └──────────────────────┘  └──────────────────────┘  │  Advanced · 4–5h     │
+                                                        └──────────────────────┘
+```
+
+---
+
+## 🏗️ Azure Deployments Accelerator
+
+The [Azure Deployments Accelerator](./Azure%20Deployments%20Accelerator%20(Terraform)/README.md) provides ready-to-use Terraform modules for provisioning shared Azure baseline infrastructure across three deployment patterns:
 
 - **Hub** — Core networking, Bastion, Key Vault, and shared services
 - **PaaS** — Azure App Service + Azure SQL Database
 - **IaaS** — Windows VM (web tier) + SQL Server VM (data tier)
 - **AI Foundry** — Azure OpenAI, AI Foundry hub, and Cosmos DB connectivity
+
+> **Bicep vs. Terraform:** The three challenge scenarios each include their own **Bicep** templates for scenario-specific Azure deployments — these are self-contained and generated by Copilot as part of the build. The Accelerator uses **Terraform** and is intended as a shared enterprise baseline (hub-and-spoke networking, centralized Key Vault, Bastion) that can be pre-deployed to provide a production-ready landing zone.

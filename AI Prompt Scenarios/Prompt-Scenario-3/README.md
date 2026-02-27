@@ -1,10 +1,21 @@
 # Prompt Scenario 3 — AI-Powered Constituent Services Chatbot
 
+![Python](https://img.shields.io/badge/Python_3.12-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![Azure OpenAI](https://img.shields.io/badge/Azure_OpenAI-0078D4?logo=microsoftazure&logoColor=white)
+![Bicep](https://img.shields.io/badge/Bicep-0078D4?logo=microsoftazure&logoColor=white)
+![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000000?logo=githubcopilot&logoColor=white)
+
+> **Difficulty:** Advanced &nbsp;|&nbsp; **Estimated time:** 4–5 hours
+
 A SLED-focused AI chatbot that helps citizens get accurate, citation-backed answers about government services — powered by Azure OpenAI and Retrieval-Augmented Generation (RAG). Built end-to-end using GitHub Copilot Agent mode.
+
+**Why this scenario?** Government call centers and service portals are overwhelmed with routine questions — permit requirements, eligibility rules, appeal deadlines. This scenario builds a chatbot that answers those questions instantly with citations from authoritative sources, reducing call volume while improving accessibility. It demonstrates a complete RAG pipeline: from document ingestion and vector indexing to grounded, auditable AI responses that meet responsible AI requirements for public-sector deployment.
 
 ---
 
-## Quick Start
+## ⚡ Quick Start
 
 ### 1. Check Prerequisites
 
@@ -21,6 +32,9 @@ Open a new empty folder in VS Code and switch Copilot Chat to **Agent mode**.
 ### 3. Paste and Run the Prompt
 
 Copy the full prompt below into Copilot Chat and press **Enter**. Copilot will generate the complete application — plan, files, and deployment commands.
+
+<details>
+<summary><strong>View full Copilot prompt</strong></summary>
 
 ```text
 You are a senior full-stack developer and Azure AI engineer building a secure, production-ready AI-powered constituent services application for a State & Local Government (SLED) agency.
@@ -76,9 +90,6 @@ REPO STRUCTURE
   knowledge-base/   (FAQ markdown files)
   scripts/
     index-documents.py   (indexes knowledge base into Azure AI Search)
-  .github/workflows/
-    ci.yml
-    deploy.yml
   README.md
 
 BACKEND REQUIREMENTS (Python + FastAPI)
@@ -164,16 +175,6 @@ INFRASTRUCTURE (BICEP) — MUST INCLUDE
 - Log Analytics workspace + Application Insights
 - Tags: environment, dataClassification, owner, costCenter
 
-CI/CD (GitHub Actions)
-1) ci.yml:
-   - Python: pip install, run pytest
-   - Node: npm install, npm run build
-2) deploy.yml:
-   - Deploy Bicep infra
-   - Deploy Python API to App Service
-   - Deploy React to Static Web Apps
-   - Run scripts/index-documents.py to populate AI Search index
-
 DOCUMENTATION
 README must include:
 - Architecture diagram (ASCII)
@@ -200,11 +201,13 @@ Produce:
 Do not leave TODO placeholders — implement end-to-end. Choose secure defaults.
 ```
 
+</details>
+
 > If Copilot stops before finishing, type `continue` and press **Enter**.
 
 ---
 
-## What You'll Build
+## 🏗️ What You'll Build
 
 - **Backend**: Python + FastAPI
 - **Frontend**: React + TypeScript (Vite)
@@ -216,7 +219,7 @@ Do not leave TODO placeholders — implement end-to-end. Choose secure defaults.
 
 ---
 
-## Run Locally
+## 💻 Run Locally
 
 ```bash
 # Backend API
@@ -226,11 +229,21 @@ cd src/api && pip install -r requirements.txt && uvicorn main:app --reload
 cd src/web && npm install && npm run dev
 ```
 
-> Copy `.env.example` to `.env` and fill in your Azure resource values before running. Paste any errors into Copilot Chat for help.
+> Copy the block below to a `.env` file in `src/api/` and fill in your Azure resource values. Paste any errors into Copilot Chat for help.
+>
+> ```env
+> AZURE_OPENAI_ENDPOINT=https://<your-openai-resource>.openai.azure.com/
+> AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4o
+> AZURE_SEARCH_ENDPOINT=https://<your-search-resource>.search.windows.net
+> AZURE_SEARCH_INDEX_NAME=constituent-services
+> COSMOS_ENDPOINT=https://<your-cosmos-account>.documents.azure.com:443/
+> # Local dev only — leave blank when deployed to Azure (Managed Identity is used instead)
+> AZURE_OPENAI_API_KEY=
+> ```
 
 ---
 
-## Deploy to Azure
+## ☁️ Deploy to Azure
 
 ```bash
 # Deploy infrastructure
@@ -243,12 +256,12 @@ az deployment sub create \
 python scripts/index-documents.py
 ```
 
-For the App Service and Static Web App deployment, follow the generated `deploy.yml` or ask Copilot:
+For the App Service and Static Web App deployment, ask Copilot:
 > *"Walk me through deploying the API and frontend to Azure with exact commands."*
 
 ---
 
-## Evaluation
+## ✅ Evaluation
 
 - [ ] App is deployed and accessible on Azure
 - [ ] Chatbot returns accurate, relevant answers to government service questions
@@ -256,5 +269,4 @@ For the App Service and Static Web App deployment, follow the generated `deploy.
 - [ ] Azure OpenAI connected using Managed Identity (no hardcoded keys)
 - [ ] Infrastructure deployed via Bicep
 - [ ] **Bonus:** Conversation history persists across page refreshes
-- [ ] **Bonus:** CI/CD pipeline runs in GitHub Actions
 - [ ] **Bonus:** Application Insights shows live telemetry

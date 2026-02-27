@@ -1,10 +1,20 @@
 # Prompt Scenario 1 — SLED Case Management CRUD App
 
+![.NET](https://img.shields.io/badge/.NET_10-512BD4?logo=dotnet&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![Cosmos DB](https://img.shields.io/badge/Cosmos_DB-0078D4?logo=microsoftazure&logoColor=white)
+![Bicep](https://img.shields.io/badge/Bicep-0078D4?logo=microsoftazure&logoColor=white)
+![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000000?logo=githubcopilot&logoColor=white)
+
+> **Difficulty:** Intermediate &nbsp;|&nbsp; **Estimated time:** 3–4 hours
+
 Secure, production-ready case management system for a fictional county agency. Built end-to-end using GitHub Copilot Agent mode on Microsoft Azure.
+
+**Why this scenario?** County agencies manage thousands of cases across services like social welfare, permitting, and public health — often in legacy systems with no audit trail. This scenario demonstrates how to build a modern, cloud-native CRUD app with security controls (Managed Identity, RBAC) and compliance features (audit logging, PII flags) that SLED agencies actually require before going to production.
 
 ---
 
-## Quick Start
+## ⚡ Quick Start
 
 ### 1. Check Prerequisites
 
@@ -22,6 +32,9 @@ Open a new empty folder in VS Code and switch Copilot Chat to **Agent mode**.
 ### 3. Paste and Run the Prompt
 
 Copy the full prompt below into Copilot Chat and press **Enter**. Copilot will generate the complete application — plan, files, and deployment commands.
+
+<details>
+<summary><strong>View full Copilot prompt</strong></summary>
 
 ```text
 You are a senior full-stack engineer and Azure infrastructure engineer building a secure, production-ready reference CRUD application for State & Local Government (SLED).
@@ -68,9 +81,6 @@ REPO STRUCTURE (monorepo)
   src/
     api/   (ASP.NET Core Web API)
     web/   (React TS)
-  .github/workflows/
-    ci.yml
-    deploy.yml
   README.md
 
 BACKEND REQUIREMENTS (.NET 10)
@@ -145,13 +155,6 @@ Create Bicep that deploys:
     to system-assigned or failing
 - Tags: environment, dataClassification, owner, costCenter (parameters)
 
-CI/CD (GitHub Actions)
-1) ci.yml — build + test API, build web
-2) deploy.yml — deploy infra via Bicep, deploy API container image, deploy web to Static Web Apps
-   - Deploy frontend by building with `npm run build` and deploying the dist/ folder
-     directly using `az staticwebapp` CLI commands; do NOT use the SWA CLI
-     (`swa deploy`) — it has known Node runtime compatibility issues
-
 DOCUMENTATION
 README must include:
 - Architecture diagram (ASCII)
@@ -178,11 +181,13 @@ Produce:
 Do not leave TODO placeholders — implement end-to-end. Choose secure defaults.
 ```
 
+</details>
+
 > If Copilot stops before finishing, type `continue` and press **Enter**.
 
 ---
 
-## What You'll Build
+## 🏗️ What You'll Build
 
 - **Backend**: ASP.NET Core Web API (.NET 10)
 - **Frontend**: React + TypeScript (Vite)
@@ -194,7 +199,7 @@ Do not leave TODO placeholders — implement end-to-end. Choose secure defaults.
 
 ---
 
-## Run Locally
+## 💻 Run Locally
 
 ```bash
 # Frontend
@@ -208,7 +213,7 @@ cd src/api && dotnet restore && dotnet run
 
 ---
 
-## Deploy to Azure
+## ☁️ Deploy to Azure
 
 ```bash
 az deployment sub create \
@@ -217,16 +222,15 @@ az deployment sub create \
   --parameters infra/main.bicepparam
 ```
 
-For the container and frontend deployment, follow the generated `deploy.yml` or ask Copilot:
+For the container and frontend deployment, ask Copilot:
 > *"Walk me through deploying the API container and frontend to Azure with exact commands."*
 
 ---
 
-## Evaluation
+## ✅ Evaluation
 
 - [ ] App is deployed and accessible on Azure
 - [ ] All CRUD operations work (create, list, edit, delete a case)
 - [ ] Cosmos DB connected using Managed Identity (no hardcoded keys)
 - [ ] Infrastructure deployed via Bicep
-- [ ] **Bonus:** CI/CD pipeline runs in GitHub Actions
 - [ ] **Bonus:** Application Insights shows live telemetry

@@ -1,10 +1,22 @@
 # Prompt Scenario 2 — IaaS Lift & Shift: Permit Management System
 
+![.NET](https://img.shields.io/badge/.NET_8-512BD4?logo=dotnet&logoColor=white)
+![SQL Server](https://img.shields.io/badge/SQL_Server_2022-CC2927?logo=microsoftsqlserver&logoColor=white)
+![IIS](https://img.shields.io/badge/IIS-0078D4?logo=microsoftazure&logoColor=white)
+![Bicep](https://img.shields.io/badge/Bicep-0078D4?logo=microsoftazure&logoColor=white)
+![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000000?logo=githubcopilot&logoColor=white)
+
+> **Difficulty:** Intermediate &nbsp;|&nbsp; **Estimated time:** 3–4 hours
+
 A SLED-focused lift-and-shift migration of an on-premises permit management system to Azure Virtual Machines. Built end-to-end using GitHub Copilot Agent mode.
+
+**Why this scenario?** Many government agencies run critical workloads on aging on-premises Windows servers with SQL Server databases — and lack the budget or timeline for a full re-architecture. This scenario shows how to lift and shift that workload to Azure IaaS with minimal code changes, while adding network isolation, Key Vault-managed credentials, and audit logging that on-premises deployments often lack.
+
+> **Note on .NET version:** This scenario targets **.NET 8** (vs. .NET 10 in Scenario 1) because IIS on Windows Server 2022 has the most stable, production-tested support for .NET 8 in a lift-and-shift context.
 
 ---
 
-## Quick Start
+## ⚡ Quick Start
 
 ### 1. Check Prerequisites
 
@@ -21,6 +33,9 @@ Open a new empty folder in VS Code and switch Copilot Chat to **Agent mode**.
 ### 3. Paste and Run the Prompt
 
 Copy the full prompt below into Copilot Chat and press **Enter**. Copilot will generate the complete application — plan, files, and deployment commands.
+
+<details>
+<summary><strong>View full Copilot prompt</strong></summary>
 
 ```text
 You are a senior full-stack developer and Azure infrastructure engineer helping a county building department perform a lift-and-shift migration of their on-premises permit management system to Azure IaaS (Virtual Machines).
@@ -74,9 +89,6 @@ REPO STRUCTURE
   scripts/
     setup-iis.ps1         (installs IIS + .NET hosting bundle)
     deploy-app.ps1        (publishes and copies app to web VM)
-  .github/workflows/
-    ci.yml
-    deploy.yml
   README.md
 
 APPLICATION REQUIREMENTS (ASP.NET Core MVC on .NET 8)
@@ -143,10 +155,6 @@ DEPLOYMENT SCRIPTS
    - Inject connection string as environment variable on the VM
    - Restart IIS app pool
 
-CI/CD (GitHub Actions)
-1) ci.yml — dotnet build + test
-2) deploy.yml — deploy Bicep infra, then run deploy-app.ps1
-
 DOCUMENTATION
 README must include:
 - Architecture diagram (ASCII showing hub VNet, web VM, SQL VM, Key Vault)
@@ -173,11 +181,13 @@ Produce:
 Do not leave TODO placeholders — implement end-to-end. Choose secure defaults.
 ```
 
+</details>
+
 > If Copilot stops before finishing, type `continue` and press **Enter**.
 
 ---
 
-## What You'll Build
+## 🏗️ What You'll Build
 
 - **Backend/Frontend**: ASP.NET Core MVC (.NET 8) with Razor Views
 - **Database**: SQL Server 2022 on Azure VM
@@ -188,7 +198,7 @@ Do not leave TODO placeholders — implement end-to-end. Choose secure defaults.
 
 ---
 
-## Run Locally
+## 💻 Run Locally
 
 ```bash
 # Run the app locally (uses LocalDB by default)
@@ -199,7 +209,7 @@ cd src/PermitManagement && dotnet restore && dotnet run
 
 ---
 
-## Deploy to Azure
+## ☁️ Deploy to Azure
 
 ```bash
 # Deploy infrastructure
@@ -214,11 +224,10 @@ pwsh scripts/deploy-app.ps1
 
 ---
 
-## Evaluation
+## ✅ Evaluation
 
 - [ ] App is running and accessible on the Azure web VM
 - [ ] All CRUD operations work (create, list, edit, delete a permit)
 - [ ] SQL Server VM is connected and storing data
 - [ ] Infrastructure deployed via Bicep
 - [ ] **Bonus:** Audit log captures status changes
-- [ ] **Bonus:** CI/CD pipeline runs in GitHub Actions
