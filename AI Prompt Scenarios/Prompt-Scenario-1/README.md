@@ -18,11 +18,22 @@ Secure, production-ready case management system for a fictional county agency. B
 
 ### 1. Verify Your Environment
 
-Your Windows 365 desktop is pre-configured with the tools you need. Open VS Code and ask Copilot to check:
+Your Windows 365 desktop is pre-configured with the tools you need. Open VS Code, switch Copilot Chat to **Agent mode**, and paste:
 
-> Open **Copilot Chat**, switch to **Agent mode**, and paste:
->
-> *"Check that .NET 10 SDK, Node.js 20+, Azure CLI, Bicep CLI, and Docker Desktop are installed. Run `az account show` to confirm I'm logged in to Azure. Install anything that's missing."*
+```text
+Check my environment and confirm everything I need for this scenario is installed and working:
+
+1. Verify each tool is installed and show its version:
+   - .NET 10 SDK: run `dotnet --version` (must be 10.x)
+   - Node.js: run `node --version` (must be 20+) and `npm --version`
+   - Azure CLI: run `az --version`
+   - Bicep CLI: run `az bicep version`
+   - Docker Desktop: run `docker --version` and confirm Docker is running
+
+2. Run `az account show` — confirm I am logged in and show me the active subscription name and ID.
+
+3. If anything is missing, outdated, or not running, install or fix it now and show me the corrected output.
+```
 
 ### 2. Open GitHub Copilot Chat
 
@@ -195,20 +206,6 @@ Do not leave TODO placeholders — implement end-to-end. Choose secure defaults.
 - **Hosting**: Azure Container Apps (API) + Azure Static Web Apps (frontend)
 - **Security**: Managed Identity + RBAC — no hardcoded keys
 - **Observability**: Application Insights + Log Analytics
-
----
-
-## 💻 Run Locally
-
-```bash
-# Frontend
-cd src/web && npm install && npm run dev
-
-# API (open a second terminal)
-cd src/api && dotnet restore && dotnet run
-```
-
-> Paste any errors directly into Copilot Chat — it will help you resolve them.
 
 ---
 

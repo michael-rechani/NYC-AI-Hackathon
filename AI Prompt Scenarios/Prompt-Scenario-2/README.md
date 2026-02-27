@@ -20,11 +20,21 @@ A SLED-focused lift-and-shift migration of an on-premises permit management syst
 
 ### 1. Verify Your Environment
 
-Your Windows 365 desktop is pre-configured with the tools you need. Open VS Code and ask Copilot to check:
+Your Windows 365 desktop is pre-configured with the tools you need. Open VS Code, switch Copilot Chat to **Agent mode**, and paste:
 
-> Open **Copilot Chat**, switch to **Agent mode**, and paste:
->
-> *"Check that .NET 8 SDK, Azure CLI, Bicep CLI, and PowerShell 7+ are installed. Run `az account show` to confirm I'm logged in to Azure. Install anything that's missing."*
+```text
+Check my environment and confirm everything I need for this scenario is installed and working:
+
+1. Verify each tool is installed and show its version:
+   - .NET 8 SDK: run `dotnet --version` (must be 8.x)
+   - Azure CLI: run `az --version`
+   - Bicep CLI: run `az bicep version`
+   - PowerShell 7+: run `pwsh --version` (must be 7+)
+
+2. Run `az account show` — confirm I am logged in and show me the active subscription name and ID.
+
+3. If anything is missing or outdated, install or fix it now and show me the corrected output.
+```
 
 ### 2. Open GitHub Copilot Chat
 
@@ -195,17 +205,6 @@ Do not leave TODO placeholders — implement end-to-end. Choose secure defaults.
 - **Hosting**: IIS on Windows Server 2022 VM
 - **Security**: Key Vault for credentials, network-isolated VMs
 - **Observability**: Structured logging + audit log table
-
----
-
-## 💻 Run Locally
-
-```bash
-# Run the app locally (uses LocalDB by default)
-cd src/PermitManagement && dotnet restore && dotnet run
-```
-
-> The app runs at `https://localhost:5001` by default. Paste any errors into Copilot Chat for help.
 
 ---
 

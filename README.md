@@ -25,11 +25,21 @@ Participants design, build, and deploy a real Azure application using secure, en
 
 Your **Windows 365 desktop** comes pre-configured with VS Code, GitHub Copilot, Azure CLI, and an active Azure account — no setup required before the event.
 
-To verify your environment and install anything missing, open VS Code and let Copilot check for you:
+To verify your environment, open VS Code, switch Copilot Chat to **Agent mode**, and paste:
 
-> Open **Copilot Chat**, switch to **Agent mode**, and paste:
->
-> *"Check that VS Code, GitHub Copilot, Azure CLI, and Bicep CLI are all installed and working. Run `az account show` to confirm I'm logged in to Azure. Install anything that's missing and show me the version of each tool."*
+```text
+Check my Windows 365 environment and confirm everything is ready:
+
+1. Verify each tool is installed and show its version:
+   - Azure CLI: run `az --version`
+   - Bicep CLI: run `az bicep version`
+   - Git: run `git --version`
+   - Confirm the GitHub Copilot extension is installed and signed in to VS Code
+
+2. Run `az account show` — confirm I am logged in and show me the active subscription name and ID.
+
+3. If anything is missing or not signed in, install or fix it now and show me the corrected output.
+```
 
 ---
 

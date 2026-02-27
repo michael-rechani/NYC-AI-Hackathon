@@ -19,11 +19,21 @@ A SLED-focused AI chatbot that helps citizens get accurate, citation-backed answ
 
 ### 1. Verify Your Environment
 
-Your Windows 365 desktop is pre-configured with the tools you need. Open VS Code and ask Copilot to check:
+Your Windows 365 desktop is pre-configured with the tools you need. Open VS Code, switch Copilot Chat to **Agent mode**, and paste:
 
-> Open **Copilot Chat**, switch to **Agent mode**, and paste:
->
-> *"Check that Python 3.12+, Node.js 20+, Azure CLI, and Bicep CLI are installed. Run `az account show` to confirm I'm logged in to Azure. Install anything that's missing."*
+```text
+Check my environment and confirm everything I need for this scenario is installed and working:
+
+1. Verify each tool is installed and show its version:
+   - Python 3.12+: run `python --version` (must be 3.12+)
+   - Node.js: run `node --version` (must be 20+) and `npm --version`
+   - Azure CLI: run `az --version`
+   - Bicep CLI: run `az bicep version`
+
+2. Run `az account show` — confirm I am logged in and show me the active subscription name and ID.
+
+3. If anything is missing or outdated, install or fix it now and show me the corrected output.
+```
 
 ### 2. Open GitHub Copilot Chat
 
@@ -216,30 +226,6 @@ Do not leave TODO placeholders — implement end-to-end. Choose secure defaults.
 - **Database**: Azure Cosmos DB for NoSQL (conversation history)
 - **Hosting**: Azure App Service (API) + Azure Static Web Apps (frontend)
 - **Security**: Managed Identity + RBAC — no hardcoded API keys
-
----
-
-## 💻 Run Locally
-
-```bash
-# Backend API
-cd src/api && pip install -r requirements.txt && uvicorn main:app --reload
-
-# Frontend (separate terminal)
-cd src/web && npm install && npm run dev
-```
-
-> Copy the block below to a `.env` file in `src/api/` and fill in your Azure resource values. Paste any errors into Copilot Chat for help.
->
-> ```env
-> AZURE_OPENAI_ENDPOINT=https://<your-openai-resource>.openai.azure.com/
-> AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4o
-> AZURE_SEARCH_ENDPOINT=https://<your-search-resource>.search.windows.net
-> AZURE_SEARCH_INDEX_NAME=constituent-services
-> COSMOS_ENDPOINT=https://<your-cosmos-account>.documents.azure.com:443/
-> # Local dev only — leave blank when deployed to Azure (Managed Identity is used instead)
-> AZURE_OPENAI_API_KEY=
-> ```
 
 ---
 
