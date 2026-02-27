@@ -1,5 +1,7 @@
 # Deployment Guide
 
+> **Note**: The recommended path for this workshop is to use GitHub Copilot in Agent mode — open each module folder in VS Code, paste the Copilot prompt from that module's README, and let Copilot guide you through configuration and deployment. This guide is for participants who prefer to deploy manually without Copilot assistance.
+
 This guide provides step-by-step instructions for deploying the Azure infrastructure using Terraform.
 
 ## Table of Contents
@@ -67,8 +69,8 @@ az account show
 ### 3. Clone the Repository
 
 ```bash
-git clone https://github.com/michael-rechani/App-in-a-Day-Workshop.git
-cd App-in-a-Day-Workshop
+git clone https://github.com/microsoft/NYC-AI-Hackathon.git
+cd NYC-AI-Hackathon
 ```
 
 ## Deployment Scenarios
@@ -539,6 +541,5 @@ az provider register --namespace Microsoft.Compute
 
 - Deploy your application code to the infrastructure
 - Configure monitoring and alerting
-- Set up CI/CD pipelines
 - Implement backup and disaster recovery
 - Configure security policies and compliance

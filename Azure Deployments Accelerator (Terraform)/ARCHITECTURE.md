@@ -407,7 +407,6 @@ PaaS:
 2. **Version Control**: Track changes in Git
 3. **Testing**: Test in dev before prod
 4. **Documentation**: Keep architecture docs updated
-5. **Automation**: Use CI/CD for deployments
-6. **Monitoring**: Enable comprehensive monitoring
-7. **Security**: Follow Azure Security Benchmark
-8. **Cost**: Regular cost reviews and optimization
+5. **Monitoring**: Enable comprehensive monitoring
+6. **Security**: Follow Azure Security Benchmark
+7. **Cost**: Regular cost reviews and optimization
