@@ -57,30 +57,23 @@ CONSTRAINTS
 
 ---
 
-## Prerequisites
+## ⚡ Get Started
 
-- Azure subscription
-- Terraform >= 1.10.0
-- Azure CLI authenticated
+Your Windows 365 desktop includes Terraform and Azure CLI. Verify your environment by opening VS Code, switching Copilot Chat to **Agent mode**, and pasting:
 
-## Usage
+```text
+Check my environment for deploying this Terraform module:
 
-1. Edit `terraform.tfvars` with your desired values (sample values are already provided)
+1. Verify these tools are installed and show the version:
+   - Terraform: run `terraform version` (must be >= 1.10.0)
+   - Azure CLI: run `az --version`
 
-2. Initialize Terraform:
-```bash
-terraform init
+2. Run `az account show` — confirm I am logged in and show me the active subscription name and ID.
+
+3. If anything is missing, install or fix it now.
 ```
 
-3. Plan the deployment:
-```bash
-terraform plan
-```
-
-4. Apply the configuration:
-```bash
-terraform apply
-```
+Then use the Copilot prompt above — it will guide you through `terraform.tfvars`, `terraform init`, `terraform plan`, `terraform apply`, and retrieving the output values needed by downstream modules.
 
 ## Resources Created
 

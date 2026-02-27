@@ -41,56 +41,39 @@ All deployments utilize [Azure Verified Modules (AVM)](https://azure.github.io/A
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### ⚡ Before You Start
 
-- Azure subscription
-- [Terraform](https://www.terraform.io/downloads.html) >= 1.10.0 (tested with 1.10.5)
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) installed and authenticated
-- Appropriate Azure permissions to create resources
+Your Windows 365 desktop includes Terraform and Azure CLI. Verify your environment by opening VS Code, switching Copilot Chat to **Agent mode**, and pasting:
 
-### Basic Deployment
+```text
+Check my environment for deploying Terraform infrastructure on Azure:
+
+1. Verify these tools are installed and show the version:
+   - Terraform: run `terraform version` (must be >= 1.10.0)
+   - Azure CLI: run `az --version`
+   - Git: run `git --version`
+
+2. Run `az account show` — confirm I am logged in and show me the active subscription name and ID.
+
+3. If anything is missing, install or fix it now.
+```
+
+### Deployment
 
 > **Note**: This repository includes sample `terraform.tfstate` files for workshop/demo purposes. Remove `terraform.tfstate*` and the `.terraform` directory before running your own deployments.
 
-1. **Authenticate to Azure:**
+Deploy modules in order — **hub first**, then workload layers. For each module:
 
-   ```bash
-   az login
-   az account set --subscription "<your-subscription-id>"
-   ```
+1. Open the module folder in VS Code (e.g., `hub/`)
+2. Switch Copilot Chat to **Agent mode**
+3. Paste the Copilot prompt from that module's README — Copilot will walk you through `terraform.tfvars`, `terraform init`, `terraform plan`, and `terraform apply`
 
-2. **Deploy hub infrastructure first** (required by IaaS and PaaS layers):
-
-   ```bash
-   cd hub
-   # Edit terraform.tfvars with your values (sample values are already provided)
-   terraform init
-   terraform apply
-   ```
-
-3. **Then deploy workload layers** (one or both):
-
-   **IaaS Deployment:**
-
-   ```bash
-   cd ../iaas-app
-   # Edit terraform.tfvars with your values (sample values are already provided)
-   terraform init
-   terraform apply
-   ```
-
-   **PaaS Deployment:**
-
-   ```bash
-   cd ../paas-app
-   # Edit terraform.tfvars with your values (sample values are already provided)
-   terraform init
-   terraform apply
-   ```
-
-> **Deployment Order**: Hub must be deployed first. IaaS and PaaS layers reference the hub's Key Vault and Private DNS Zone.
-
-For detailed instructions, see the [Deployment Guide](DEPLOYMENT.md).
+| Step | Module | Purpose |
+| --- | --- | --- |
+| 1 | [hub/](hub/README.md) | Core networking, Key Vault, Bastion — deploy first |
+| 2a | [iaas-app/](iaas-app/README.md) | SQL Server VM + Web VM *(optional)* |
+| 2b | [paas-app/](paas-app/README.md) | App Service + Azure SQL Database *(optional)* |
+| 3 | [ai-foundry/](ai-foundry/README.md) | AI Hub, GPT-4o, SQL connections *(optional)* |
 
 ## 📁 Repository Structure
 
@@ -132,35 +115,11 @@ For detailed instructions, see the [Deployment Guide](DEPLOYMENT.md).
 └── README.md          # This file
 ```
 
-## Prerequisites (Detailed)
-
-- Azure subscription
-- [Terraform](https://www.terraform.io/downloads.html) >= 1.10.0 (tested with 1.10.5)
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) installed and authenticated
-- Appropriate Azure permissions to create resources
-
-## Authentication
-
-Authenticate to Azure using the Azure CLI:
-
-```bash
-az login
-az account set --subscription "<your-subscription-id>"
-```
-
 ## ⚙️ Deployment Options
 
 ### Step 1: Hub Infrastructure (Deploy First)
 
-Deploy core networking infrastructure with secure remote access and centralized secrets:
-
-```bash
-cd hub
-# Edit terraform.tfvars with your values (sample values are already provided)
-terraform init
-terraform plan
-terraform apply
-```
+Open `hub/` in VS Code, switch Copilot Chat to **Agent mode**, and use the [Copilot prompt in hub/README.md](hub/README.md). Copilot will guide you through configuration and deployment.
 
 **Resources Created:**
 
@@ -172,19 +131,9 @@ terraform apply
 - Private DNS Zone (`privatelink.vaultcore.azure.net`)
 - Network Security Groups
 
-📖 [Full documentation](hub/README.md)
-
 ### Step 2a: IaaS Deployment (Requires Hub)
 
-Deploy traditional VM-based infrastructure for web and database tiers:
-
-```bash
-cd iaas-app
-# Edit terraform.tfvars with your values (sample values are already provided)
-terraform init
-terraform plan
-terraform apply
-```
+Open `iaas-app/` in VS Code, switch Copilot Chat to **Agent mode**, and use the [Copilot prompt in iaas-app/README.md](iaas-app/README.md).
 
 **Resources Created:**
 
@@ -193,23 +142,12 @@ terraform apply
 - SQL Server 2022 VM with optimized storage
 - NAT Gateway for outbound internet access
 - VNet Peering to hub network
-- Private DNS Zone link to hub's Key Vault DNS zone
 - Network Security Groups with tier-appropriate rules
 - Optional public IP for web access
 
-📖 [Full documentation](iaas-app/README.md)
-
 ### Step 2b: PaaS Deployment (Requires Hub)
 
-Deploy modern cloud-native PaaS services:
-
-```bash
-cd paas-app
-# Edit terraform.tfvars with your values (sample values are already provided)
-terraform init
-terraform plan
-terraform apply
-```
+Open `paas-app/` in VS Code, switch Copilot Chat to **Agent mode**, and use the [Copilot prompt in paas-app/README.md](paas-app/README.md).
 
 **Resources Created:**
 
@@ -218,10 +156,7 @@ terraform apply
 - Virtual Network with VNet integration
 - NAT Gateway for outbound internet access
 - VNet Peering to hub network
-- Private DNS Zone link to hub's Key Vault DNS zone
 - Application Insights
-
-📖 [Full documentation](paas-app/README.md)
 
 ## 🔧 Azure Verified Modules
 
@@ -238,31 +173,17 @@ This repository uses the following Azure Verified Modules:
 
 ### Scenario 1: Hub + IaaS (Lift & Shift)
 
-```bash
-cd hub && terraform apply
-cd ../iaas-app && terraform apply
-```
+Deploy `hub/` → then `iaas-app/`. Use the Copilot prompt in each module's README to guide deployment.
 
 ### Scenario 2: Hub + PaaS (Cloud-Native)
 
-```bash
-cd hub && terraform apply
-cd ../paas-app && terraform apply
-```
+Deploy `hub/` → then `paas-app/`. Use the Copilot prompt in each module's README to guide deployment.
 
 ### Scenario 3: Complete Environment (Hub + IaaS + PaaS)
 
-Combine hub infrastructure with both IaaS and PaaS workloads:
+Deploy `hub/` → `iaas-app/` → `paas-app/` → optionally `ai-foundry/`. Use the Copilot prompt in each module's README at each step.
 
-```bash
-cd hub && terraform apply
-cd ../iaas-app && terraform apply
-cd ../paas-app && terraform apply
-```
-
-> **Note**: Hub must always be deployed first. IaaS and PaaS layers can be deployed in any order after hub.
-
-See [Architecture Guide](ARCHITECTURE.md) for detailed patterns.
+> **Note**: Hub must always be deployed first. IaaS, PaaS, and AI Foundry layers can be deployed in any order after hub.
 
 ## 💡 Best Practices
 

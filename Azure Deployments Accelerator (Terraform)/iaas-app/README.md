@@ -65,39 +65,25 @@ CONSTRAINTS
 
 ---
 
-## Prerequisites
+## ⚡ Get Started
 
-- Azure subscription
-- Terraform >= 1.10.0
-- Azure CLI authenticated
-- **Hub infrastructure deployed** (provides Key Vault and DNS zone)
+> **Prerequisite**: The [hub](../hub/README.md) module must be deployed first. You will need its `hub_resource_group_name`, `hub_vnet_name`, and `hub_key_vault_name` output values for `terraform.tfvars`.
 
-## Usage
+Your Windows 365 desktop includes Terraform and Azure CLI. Verify your environment by opening VS Code, switching Copilot Chat to **Agent mode**, and pasting:
 
-<!-- markdownlint-disable MD029 -->
+```text
+Check my environment for deploying this Terraform module:
 
-1. Edit `terraform.tfvars` with your desired values (sample values are already provided)
-2. Ensure `hub_resource_group_name`, `hub_vnet_name`, and `hub_key_vault_name` match your hub deployment
+1. Verify these tools are installed and show the version:
+   - Terraform: run `terraform version` (must be >= 1.10.0)
+   - Azure CLI: run `az --version`
 
-3. Initialize Terraform:
+2. Run `az account show` — confirm I am logged in and show me the active subscription name and ID.
 
-  ```bash
-  terraform init
-  ```
+3. If anything is missing, install or fix it now.
+```
 
-4. Plan the deployment:
-
-  ```bash
-  terraform plan
-  ```
-
-5. Apply the configuration:
-
-  ```bash
-  terraform apply
-  ```
-
-<!-- markdownlint-enable MD029 -->
+Then use the Copilot prompt above — it will walk you through the hub cross-references in `terraform.tfvars`, run `terraform init`, `terraform plan`, and `terraform apply`, and help you connect to VMs via Bastion and retrieve credentials from Key Vault.
 
 ## Resources Created
 

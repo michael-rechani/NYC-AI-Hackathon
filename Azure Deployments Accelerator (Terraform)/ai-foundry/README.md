@@ -151,33 +151,32 @@ This requires deploying the PLS infrastructure in `iaas-app` first (see below).
 
 ## Prerequisites
 
-1. **Hub infrastructure** deployed (`hub/` module)
-2. **PaaS app** deployed (`paas-app/` module) — for Azure SQL Database connection
-3. **IaaS app** deployed with PLS (`iaas-app/` module) — only if `enable_iaas_sql_pls = true`
+Deploy these modules first (in order):
 
-## Deployment
+| Step | Module | Provides |
+| --- | --- | --- |
+| 1 | `hub/` | Key Vault, Bastion, Private DNS |
+| 2 | `iaas-app/` | SQL VM + Private Link Service *(only if `enable_iaas_sql_pls = true`)* |
+| 3 | `paas-app/` | App Service + Azure SQL Database |
+| 4 | `ai-foundry/` | AI Hub, GPT-4o ← **YOU ARE HERE** |
 
-```bash
-cd ai-foundry
+## ⚡ Get Started
 
-# Initialize Terraform
-terraform init
-
-# Review the plan
-terraform plan
-
-# Deploy
-terraform apply
-```
-
-### Deployment Order
+Your Windows 365 desktop includes Terraform and Azure CLI. Verify your environment by opening VS Code, switching Copilot Chat to **Agent mode**, and pasting:
 
 ```text
-1. hub/           → Key Vault, Bastion, Private DNS
-2. iaas-app/      → SQL VM + Private Link Service (optional)
-3. paas-app/      → App Service + Azure SQL Database
-4. ai-foundry/    → AI Hub, AI Services, SQL connections ← YOU ARE HERE
+Check my environment for deploying this Terraform module:
+
+1. Verify these tools are installed and show the version:
+   - Terraform: run `terraform version` (must be >= 1.10.0)
+   - Azure CLI: run `az --version`
+
+2. Run `az account show` — confirm I am logged in and show me the active subscription name and ID.
+
+3. If anything is missing, install or fix it now.
 ```
+
+Then use the Copilot prompt above — it will walk you through `terraform.tfvars` (hub cross-references, IaaS SQL PLS toggle, GPT-4o region and quota), run `terraform init`, `terraform plan`, and `terraform apply`, and guide you to the AI Foundry portal after deployment.
 
 ## Enabling IaaS SQL VM Access
 

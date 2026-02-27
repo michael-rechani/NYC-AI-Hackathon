@@ -66,31 +66,25 @@ CONSTRAINTS
 
 ---
 
-## Prerequisites
+## ⚡ Get Started
 
-- Azure subscription
-- Terraform >= 1.10.0
-- Azure CLI authenticated
-- **Hub infrastructure deployed** (provides Key Vault and DNS zone)
+> **Prerequisite**: The [hub](../hub/README.md) module must be deployed first. You will need its `hub_resource_group_name`, `hub_vnet_name`, and `hub_key_vault_name` output values for `terraform.tfvars`.
 
-## Usage
+Your Windows 365 desktop includes Terraform and Azure CLI. Verify your environment by opening VS Code, switching Copilot Chat to **Agent mode**, and pasting:
 
-1. Edit `terraform.tfvars` with your desired values (sample values are already provided)
+```text
+Check my environment for deploying this Terraform module:
 
-2. Initialize Terraform:
-```bash
-terraform init
+1. Verify these tools are installed and show the version:
+   - Terraform: run `terraform version` (must be >= 1.10.0)
+   - Azure CLI: run `az --version`
+
+2. Run `az account show` — confirm I am logged in and show me the active subscription name and ID.
+
+3. If anything is missing, install or fix it now.
 ```
 
-3. Plan the deployment:
-```bash
-terraform plan
-```
-
-4. Apply the configuration:
-```bash
-terraform apply
-```
+Then use the Copilot prompt above — it will walk you through the hub cross-references in `terraform.tfvars`, run `terraform init`, `terraform plan`, and `terraform apply`, and show you how to retrieve the App Service URL and SQL credentials.
 
 ## Resources Created
 
