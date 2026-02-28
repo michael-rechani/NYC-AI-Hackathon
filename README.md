@@ -48,7 +48,7 @@ Your **Windows 365 desktop** comes pre-configured with VS Code, GitHub Copilot, 
 
 ## 🏗️ Azure Deployments Accelerator (Terraform)
 
-The [Azure Deployments Accelerator](./Azure%20Deployments%20Accelerator%20(Terraform)/README.md) provides ready-to-use Terraform modules for deploying a shared enterprise landing zone on Azure. It follows a hub-and-spoke network topology — deploy the Hub first to establish shared networking, Key Vault, and Bastion access, then add IaaS, PaaS, and AI Foundry spokes in any order.
+The [Azure Deployment Accelerator](./Azure%20Deployments%20Accelerator%20(Terraform)/README.md) provides ready-to-use Terraform modules for deploying a shared enterprise landing zone on Azure. It follows a hub-and-spoke network topology — deploy the Hub first to establish shared networking, Key Vault, and Bastion access, then add IaaS, PaaS, and AI Foundry spokes in any order.
 
 ```text
 ┌─────────────────────────────────────────────────────────────────────────┐
