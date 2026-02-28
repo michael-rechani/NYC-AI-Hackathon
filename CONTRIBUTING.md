@@ -10,11 +10,11 @@ Welcome to the NYC AI Hackathon. This guide covers how to get help during the ev
 
 ## 🆘 Getting Help During the Event
 
-Microsoft engineers are on-site throughout the day. If you're stuck, here's the escalation path:
+Microsoft CSAs and SEs are on-site throughout the day. If you're stuck, here's the escalation path:
 
 1. **Ask GitHub Copilot first** — paste the error directly into Copilot Chat. Most build and deployment errors can be resolved this way.
 2. **Ask your table** — other teams may have hit the same issue. Compare notes.
-3. **Flag a Microsoft engineer** — they're circulating throughout the room. Raise your hand or find them at the front.
+3. **Flag a Microsoft CSA or SE** — they're circulating throughout the room. Raise your hand or find them at the front.
 
 > For common issues (Azure login, subscription access, Bicep errors), check the troubleshooting section in your scenario README before escalating.
 
