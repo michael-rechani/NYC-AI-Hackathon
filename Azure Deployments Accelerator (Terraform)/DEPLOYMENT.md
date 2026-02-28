@@ -26,7 +26,7 @@ Before you begin, ensure you have:
 
 ### 1. Install Required Tools
 
-Your Windows 365 desktop comes pre-configured with Azure CLI. If Terraform is not installed, use the Copilot prompt in each module's README to install it, or download it from [terraform.io](https://www.terraform.io/downloads.html).
+Use the Copilot prompt in each module's README to install required tools, or download Terraform directly from [terraform.io](https://www.terraform.io/downloads.html) and Azure CLI from [learn.microsoft.com](https://learn.microsoft.com/cli/azure/install-azure-cli).
 
 ### 2. Authenticate to Azure
 
