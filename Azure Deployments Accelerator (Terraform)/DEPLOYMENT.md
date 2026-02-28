@@ -26,31 +26,7 @@ Before you begin, ensure you have:
 
 ### 1. Install Required Tools
 
-#### Install Terraform
-```bash
-# macOS
-brew install terraform
-
-# Windows (using Chocolatey)
-choco install terraform
-
-# Linux
-wget https://releases.hashicorp.com/terraform/1.10.5/terraform_1.10.5_linux_amd64.zip
-unzip terraform_1.10.5_linux_amd64.zip
-sudo mv terraform /usr/local/bin/
-```
-
-#### Install Azure CLI
-```bash
-# macOS
-brew install azure-cli
-
-# Windows (using MSI installer)
-# Download from https://aka.ms/installazurecliwindows
-
-# Linux
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-```
+Your Windows 365 desktop comes pre-configured with Azure CLI. If Terraform is not installed, use the Copilot prompt in each module's README to install it, or download it from [terraform.io](https://www.terraform.io/downloads.html).
 
 ### 2. Authenticate to Azure
 
@@ -328,52 +304,7 @@ az keyvault secret show --vault-name $KV_NAME --name paas-sql-admin-password --q
 
 > **Important**: This repository includes sample `terraform.tfstate` files for workshop/demo purposes. Remove `terraform.tfstate*` and the `.terraform` directory before running your own deployments.
 
-### Local State (Development)
-
-By default, Terraform stores state locally. This is fine for development/testing.
-
-### Remote State (Team/Production)
-
-For team environments, use Azure Storage for remote state:
-
-1. Create storage account for Terraform state:
-```bash
-# Variables
-RESOURCE_GROUP_NAME="rg-terraform-state"
-STORAGE_ACCOUNT_NAME="sttfstate${RANDOM}"
-CONTAINER_NAME="tfstate"
-LOCATION="eastus"
-
-# Create resources
-az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
-az storage account create \
-  --name $STORAGE_ACCOUNT_NAME \
-  --resource-group $RESOURCE_GROUP_NAME \
-  --location $LOCATION \
-  --sku Standard_LRS \
-  --encryption-services blob
-az storage container create \
-  --name $CONTAINER_NAME \
-  --account-name $STORAGE_ACCOUNT_NAME
-```
-
-2. Add backend configuration to each module:
-```hcl
-# In hub/main.tf (add after terraform block)
-terraform {
-  backend "azurerm" {
-    resource_group_name  = "rg-terraform-state"
-    storage_account_name = "sttfstate12345"
-    container_name       = "tfstate"
-    key                  = "hub.tfstate"
-  }
-}
-```
-
-3. Re-initialize:
-```bash
-terraform init -migrate-state
-```
+By default, Terraform stores state locally — this is fine for this PoC/hackathon context. Remote state backend configuration (Azure Storage) is out of scope for this event.
 
 ## Updating Infrastructure
 
@@ -528,18 +459,15 @@ az provider register --namespace Microsoft.Compute
 
 ## Best Practices
 
-1. **Use Remote State** for team environments
-2. **Version Control** your `.tf` files (not `.tfvars` with secrets)
-3. **Use Variables** for all configurable values
-4. **Tag Resources** consistently for cost tracking
-5. **Plan Before Apply** always review changes
-6. **Lock State** when making changes in team environments
-7. **Backup State** regularly
-8. **Use Workspaces** for environment separation (dev/staging/prod)
+1. **Never commit secrets** — keep credentials out of `.tfvars` and source control
+2. **Tag resources** consistently for cost tracking and cleanup
+3. **Plan before apply** — always review `terraform plan` output before applying
+4. **Destroy when done** — tear down resources after the event to avoid unnecessary costs
 
 ## Next Steps
 
-- Deploy your application code to the infrastructure
-- Configure monitoring and alerting
-- Implement backup and disaster recovery
-- Configure security policies and compliance
+Once your infrastructure is deployed, head back to your chosen scenario to build and deploy your application:
+
+- [Scenario 1 — SLED Case Management CRUD App](../AI%20Prompt%20Scenarios/Prompt-Scenario-1/README.md)
+- [Scenario 2 — IaaS Lift & Shift: Permit Management](../AI%20Prompt%20Scenarios/Prompt-Scenario-2/README.md)
+- [Scenario 3 — AI Constituent Services Chatbot](../AI%20Prompt%20Scenarios/Prompt-Scenario-3/README.md)
